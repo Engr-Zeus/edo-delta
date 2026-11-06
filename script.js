@@ -1,13 +1,34 @@
 // Gallery data: add, remove, or reorder entries here without changing the page structure.
 const galleryItems = [
-  { src: 'assets/images/gallery/activity-01.jpg', alt: 'Community activity 1', available: true },
-  { src: 'assets/images/gallery/activity-02.jpg', alt: 'Community activity 2', available: true },
-  { src: 'assets/images/gallery/activity-03.jpg', alt: 'Community activity 3', available: true },
-  { src: 'assets/images/gallery/activity-04.jpg', alt: 'Community activity 4', available: true },
-  { src: 'assets/images/gallery/activity-05.jpg', alt: 'Community activity 5', available: true },
-  { src: 'assets/images/gallery/activity-06.jpg', alt: 'Community activity 6', available: true },
-  { src: 'assets/images/gallery/activity-07.jpg', alt: 'Community activity 7', available: true },
-  { src: 'assets/images/gallery/activity-08.jpg', alt: 'Community activity 8', available: true }
+  { src: 'assets/images/gallery/activity-01.jpg', alt: 'Community activity 1' },
+  { src: 'assets/images/gallery/activity-02.jpg', alt: 'Community activity 2' },
+  { src: 'assets/images/gallery/activity-03.jpg', alt: 'Community activity 3' },
+  { src: 'assets/images/gallery/activity-04.jpg', alt: 'Community activity 4' },
+  { src: 'assets/images/gallery/activity-05.jpg', alt: 'Community activity 5' },
+  { src: 'assets/images/gallery/activity-06.jpg', alt: 'Community activity 6' },
+  { src: 'assets/images/gallery/activity-07.jpg', alt: 'Community activity 7' },
+  { src: 'assets/images/gallery/activity-08.jpg', alt: 'Community activity 8' },
+  { src: 'assets/images/gallery/activity-09.jpg', alt: 'Community activity 9' },
+  { src: 'assets/images/gallery/activity-10.jpg', alt: 'Community activity 10' },
+  { src: 'assets/images/gallery/activity-11.jpg', alt: 'Community activity 11' },
+  { src: 'assets/images/gallery/activity-12.jpg', alt: 'Community activity 12' },
+  { src: 'assets/images/gallery/activity-13.jpg', alt: 'Community activity 13' },
+  { src: 'assets/images/gallery/activity-14.jpg', alt: 'Community activity 14' },
+  { src: 'assets/images/gallery/activity-15.jpg', alt: 'Community activity 15' },
+  { src: 'assets/images/gallery/activity-16.jpg', alt: 'Community activity 16' },
+  { src: 'assets/images/gallery/activity-17.jpg', alt: 'Community activity 17' },
+  { src: 'assets/images/gallery/activity-18.jpg', alt: 'Community activity 18' },
+  { src: 'assets/images/gallery/activity-19.jpg', alt: 'Community activity 19' },
+  { src: 'assets/images/gallery/activity-20.jpg', alt: 'Community activity 20' },
+  { src: 'assets/images/gallery/activity-21.jpg', alt: 'Community activity 21' },
+  { src: 'assets/images/gallery/activity-22.jpg', alt: 'Community activity 22' },
+  { src: 'assets/images/gallery/activity-23.jpg', alt: 'Community activity 23' },
+  { src: 'assets/images/gallery/activity-24.jpg', alt: 'Community activity 24' },
+  { src: 'assets/images/gallery/activity-25.jpg', alt: 'Community activity 25' },
+  { src: 'assets/images/gallery/IMG_1583.png', alt: 'Community activity 26' },
+  { src: 'assets/images/gallery/IMG_1618.jpg', alt: 'Community activity 27' },
+  { src: 'assets/images/gallery/IMG_1620.jpg', alt: 'Community activity 28' },
+  { src: 'assets/images/gallery/IMG_1621.jpg', alt: 'Community activity 29' }
 ];
 
 const galleryGrid = document.getElementById('galleryGrid');
@@ -47,6 +68,7 @@ function handleImageMissing(img, fallbackLabel) {
   if (galleryItem) {
     galleryItem.classList.add('empty');
     galleryItem.setAttribute('aria-label', 'Photo coming soon');
+    galleryItem.disabled = true;
     img.remove();
   }
 
@@ -58,6 +80,16 @@ function handleImageMissing(img, fallbackLabel) {
 
 function buildGallery() {
   galleryGrid.innerHTML = '';
+  const revealObserver = 'IntersectionObserver' in window
+    ? new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px 60px 0px', threshold: 0.1 })
+    : null;
 
   galleryItems.forEach((item, index) => {
     const button = document.createElement('button');
@@ -65,6 +97,7 @@ function buildGallery() {
     button.className = 'gallery-item';
     button.setAttribute('aria-label', `Open gallery image ${index + 1}`);
     button.dataset.index = String(index);
+    button.style.transitionDelay = `${(index % 6) * 45}ms`;
 
     const img = document.createElement('img');
     img.src = item.src;
@@ -76,6 +109,12 @@ function buildGallery() {
     button.appendChild(img);
     button.addEventListener('click', () => openLightbox(index));
     galleryGrid.appendChild(button);
+
+    if (revealObserver) {
+      revealObserver.observe(button);
+    } else {
+      button.classList.add('is-visible');
+    }
   });
 }
 
