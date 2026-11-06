@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="St. Patrick's Edo-Delta Catholic Community of St. John Mary Vianney Catholic Church, Kubwa, Abuja."
+    />
+    <title>St. Patrick's Edo-Delta Catholic Community</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="nav container" aria-label="Main navigation">
+        <a href="#home" class="brand">St. Patrick's</a>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#welcome">Welcome</a>
+          <a href="#community">Community</a>
+          <a href="#gallery">Gallery</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <section id="home" class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">A Community United in Faith</p>
+            <h1>
+              ST. PATRICK'S<br />
+              EDO-DELTA<br />
+              CATHOLIC COMMUNITY
+            </h1>
+            <p class="church-name">St. John Mary Vianney Catholic Church, Kubwa, Abuja.</p>
+          </div>
+
+          <figure class="portrait-frame" aria-label="St. Patrick portrait">
+            <!-- Hero image: place the supplied St. Patrick photograph here -->
+            <img
+              src="assets/images/st-patrick.jpg"
+              alt="St. Patrick of Ireland"
+              loading="eager"
+            />
+            <div class="portrait-fallback" aria-hidden="true">St. Patrick</div>
+          </figure>
+        </div>
+      </section>
+
+      <section id="welcome" class="welcome section-shell">
+        <div class="container">
+          <div class="section-heading center">
+            <p class="eyebrow gold">Welcome</p>
+            <h2>Welcome to Our Community</h2>
+          </div>
+
+          <div class="welcome-card">
+            <p>
+              Welcome to the St. Patrick Edo-Delta Catholic Community of St. John Mary Vianney Catholic Church,
+              Kubwa, Abuja. We are a family of Catholic faithful united by our shared heritage, faith in Christ,
+              love for one another and commitment to the Catholic Church. Here, we celebrate our heritage,
+              strengthen our fellowship and grow together in faith and service.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="community" class="community section-shell">
+        <div class="container">
+          <div class="section-heading center">
+            <p class="eyebrow gold">Our Community</p>
+            <h2>One Faith. One Family. One Community.</h2>
+          </div>
+
+          <figure class="community-photo" data-full="assets/images/community.jpg" role="button" tabindex="0" aria-label="View the community photo in full size">
+            <!-- Community group photo: place the supplied group photograph here -->
+            <img src="assets/images/community.jpg" alt="Community members gathered in fellowship" loading="lazy" />
+            <div class="image-overlay" aria-hidden="true">Tap to view</div>
+          </figure>
+
+          <p class="community-support">
+            Bound together by our Catholic faith and shared Edo-Delta heritage, we celebrate fellowship,
+            preserve our identity and support one another in our journey with Christ.
+          </p>
+        </div>
+      </section>
+
+      <section id="gallery" class="gallery section-shell">
+        <div class="container">
+          <div class="section-heading center">
+            <p class="eyebrow gold">Moments</p>
+            <h2>Moments in Our Community</h2>
+            <p class="section-intro">Celebrating faith, fellowship, service and togetherness.</p>
+          </div>
+
+          <div class="gallery-grid" id="galleryGrid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="closing section-shell">
+        <div class="container closing-inner">
+          <p class="eyebrow gold">Together in Faith</p>
+          <h2>Together in Faith, United in Community</h2>
+          <p>St. Patrick's Edo-Delta Catholic Community</p>
+          <p>St. John Mary Vianney Catholic Church, Kubwa, Abuja.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <p class="footer-title">St. Patrick's Edo-Delta Catholic Community</p>
+          <p>St. John Mary Vianney Catholic Church, Kubwa, Abuja.</p>
+        </div>
+        <p class="copyright">© <span id="year"></span> St. Patrick's Edo-Delta Catholic Community</p>
+      </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+      <button class="lightbox-nav prev" type="button" aria-label="Previous image">‹</button>
+      <div class="lightbox-content">
+        <img id="lightboxImage" src="" alt="" />
+      </div>
+      <button class="lightbox-nav next" type="button" aria-label="Next image">›</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
