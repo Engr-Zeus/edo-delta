@@ -13,11 +13,16 @@
   <body>
     <header class="topbar">
       <nav class="nav container" aria-label="Main navigation">
-        <a href="#home" class="brand">St. Patrick's</a>
-        <div class="nav-links">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
           <a href="#home">Home</a>
           <a href="#welcome">Welcome</a>
           <a href="#community">Community</a>
+          <a href="#contribute">Contribute</a>
           <a href="#gallery">Gallery</a>
         </div>
       </nav>
@@ -26,16 +31,6 @@
     <main class="page-shell">
       <section id="home" class="hero">
         <div class="container hero-inner">
-          <div class="hero-copy">
-            <p class="eyebrow">A Community United in Faith</p>
-            <h1>
-              ST. PATRICK'S<br />
-              EDO-DELTA<br />
-              CATHOLIC COMMUNITY
-            </h1>
-            <p class="church-name">St. John Mary Vianney Catholic Church, Kubwa, Abuja.</p>
-          </div>
-
           <figure class="portrait-frame" aria-label="St. Patrick portrait">
             <!-- Hero image: place the supplied St. Patrick photograph here -->
             <img
@@ -45,6 +40,16 @@
             />
             <div class="portrait-fallback" aria-hidden="true">St. Patrick</div>
           </figure>
+
+          <div class="hero-copy">
+            <p class="eyebrow">A Community United in Faith</p>
+            <h1>
+              ST. PATRICK'S<br />
+              EDO-DELTA<br />
+              CATHOLIC COMMUNITY
+            </h1>
+            <p class="church-name">St. John Mary Vianney Catholic Church, Kubwa, Abuja.</p>
+          </div>
         </div>
       </section>
 
@@ -83,6 +88,28 @@
             Bound together by our Catholic faith and shared Edo-Delta heritage, we celebrate fellowship,
             preserve our identity and support one another in our journey with Christ.
           </p>
+        </div>
+      </section>
+
+      <section id="contribute" class="contribute section-shell">
+        <div class="container">
+          <div class="section-heading center">
+            <p class="eyebrow gold">Contribute</p>
+            <h2>Support Our Community</h2>
+          </div>
+
+          <div class="contribute-card">
+            <p class="contribute-copy">
+              Your generosity helps us strengthen fellowship, support one another and continue the mission of our
+              Catholic community in faith and service.
+            </p>
+
+            <div class="account-box">
+              <p><span>Account Name:</span> St Patrick Edo/Delta Association</p>
+              <p><span>Account Number:</span> 4089796015</p>
+              <p><span>Bank:</span> FCMB</p>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -62,39 +62,68 @@ a {
 .nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   min-height: 64px;
   gap: 0.75rem;
+  position: relative;
 }
 
-.brand,
 .nav-links a {
   color: var(--white);
   text-decoration: none;
 }
 
-.brand {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.05rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 700;
+.menu-toggle {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 999px;
 }
 
 .nav-links {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  width: min(70vw, 220px);
+  background: rgba(8, 27, 56, 0.96);
+  border: 1px solid rgba(199, 167, 102, 0.2);
+  border-radius: 14px;
+  padding: 0.7rem 0.75rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.nav-links.open {
   display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
 }
 
 .nav-links a {
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   opacity: 0.9;
-  padding: 0.35rem 0.5rem;
+  padding: 0.45rem 0.5rem;
   border-radius: 999px;
   transition: background-color 0.25s ease, opacity 0.25s ease;
+  width: 100%;
 }
 
 .nav-links a:hover,
@@ -115,6 +144,10 @@ a {
   display: grid;
   gap: 1.5rem;
   align-items: center;
+}
+
+.hero-copy {
+  order: 2;
 }
 
 .eyebrow {
@@ -160,12 +193,14 @@ a {
   border: 3px solid rgba(199, 167, 102, 0.8);
   box-shadow: var(--shadow-gold);
   background: linear-gradient(135deg, rgba(199, 167, 102, 0.18), rgba(8, 27, 56, 0.2));
+  order: 1;
 }
 
 .portrait-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 18%;
 }
 
 .portrait-fallback {
@@ -252,6 +287,36 @@ a {
 .closing-inner p {
   margin: 0;
   color: var(--navy-700);
+}
+
+.contribute-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(8, 27, 56, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 1.5rem 1.1rem;
+}
+
+.contribute-copy {
+  margin: 0 0 1.1rem;
+  color: var(--navy-700);
+}
+
+.account-box {
+  background: linear-gradient(135deg, rgba(8, 27, 56, 0.04), rgba(199, 167, 102, 0.08));
+  border: 1px solid rgba(199, 167, 102, 0.3);
+  border-radius: var(--radius-md);
+  padding: 1rem 0.9rem;
+}
+
+.account-box p {
+  margin: 0.45rem 0;
+  color: var(--navy-800);
+}
+
+.account-box span {
+  font-weight: 700;
+  color: var(--navy-900);
 }
 
 .gallery-grid {

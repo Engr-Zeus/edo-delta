@@ -11,6 +11,8 @@ const galleryItems = [
 ];
 
 const galleryGrid = document.getElementById('galleryGrid');
+const navLinks = document.getElementById('navLinks');
+const menuToggle = document.querySelector('.menu-toggle');
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.getElementById('lightboxImage');
 const closeButton = document.querySelector('.lightbox-close');
@@ -152,6 +154,22 @@ function bindLightboxEvents() {
   }, { passive: true });
 }
 
+function setupMobileMenu() {
+  if (!navLinks || !menuToggle) return;
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  navLinks.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
 function setCopyrightYear() {
   const year = document.getElementById('year');
   if (year) {
@@ -183,6 +201,7 @@ function bindCommunityImageClick() {
 document.addEventListener('DOMContentLoaded', () => {
   buildGallery();
   initImageFallbacks();
+  setupMobileMenu();
   bindLightboxEvents();
   bindCommunityImageClick();
   setCopyrightYear();
